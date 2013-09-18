@@ -15,6 +15,7 @@
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 import urllib.request
+import urllib.parse
 import json
 import sys
 from shutil import get_terminal_size
@@ -22,7 +23,8 @@ from shutil import get_terminal_size
 if len(sys.argv) == 1:
     sys.exit(1)
 
-urban_url = "http://api.urbandictionary.com/v0/define?term=" + sys.argv[1]
+arguments = urllib.parse.quote(' '.join(sys.argv[1:]))
+urban_url = "http://api.urbandictionary.com/v0/define?term=" + arguments
 urban_data = urllib.request.urlopen(urban_url).read().decode("utf8")
 urban_dict = json.loads(urban_data)["list"]
 
