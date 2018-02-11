@@ -33,7 +33,8 @@ term_green = '\033[92m'
 term_black = '\033[0m'
 
 for i in urban_dict:
-    print (("> " + i["word"] + " <").center((get_terminal_size()[0]), "="))
-    print (term_blue + "Definition:" + term_black, i["definition"], "\n")
+    print(("> " + i["word"] + " <").center((get_terminal_size()[0]), "="))
+    print(term_blue + "Definition:" + term_black, i["definition"], "\n")
     if i["example"] != None:
-        print (term_green + "Example:" + term_black, i["example"])
+        print(term_green + "Example:" + term_black, i["example"])
+    print()
